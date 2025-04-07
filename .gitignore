@@ -1,0 +1,18 @@
+# created by virtualenv automatically
+.env
+.env.*
+*.env
+# Virtual environment
+.venv/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+# IDE specific
+.idea/
+.vscode/
+*.swp
