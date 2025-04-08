@@ -13,12 +13,14 @@ def export_to_excel(test_cases, filename='test_cases.xlsx'):
             'Test Title': case.test_title,
             'Description': case.description,
             'Preconditions': case.preconditions,
+            'Postconditions':case.postconditions,
             'Test Steps': case.test_steps,
-            'Test Data': case.test_data,
             'Expected Result': case.expected_result,
             'Actual Result' : '',
              'Status':'',
-            'Comments': case.comments
+            'Comments': case.comments,
+            'Severity':case.severity,
+            'Priority':case.priority
         }
         for case in test_cases
     ]

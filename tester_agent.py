@@ -15,13 +15,15 @@ load_dotenv()
 
 class TestCase(BaseModel):
     test_case_id: int = Field(..., description="Unique identifier for the test case.")
-    test_title: str = Field(..., description="Title of the test case.")
-    description: str = Field(..., description="Detailed description of what the test case covers.")
-    preconditions: str = Field(...,description="Any setup or conditions that must be met before executing the test.")
-    test_steps : str  = Field(...,description='A step-by-step guide on how to execute the test.')
-    test_data: str  = Field(...,description= 'Input values required for the test.')
-    expected_result : str = Field(...,description='The anticipated outcome if the application works correctly.')
-    comments : str = Field(...,description='Additional notes or observations.')
+    test_title: str = Field(..., description="Test Case Title")
+    description: str = Field(..., description="Test Case Description")
+    preconditions: str = Field(..., description="Test Case Precondition")
+    postconditions: str = Field(..., description="Test Case Postcondition")
+    test_steps: str = Field(..., description="A step-by-step guide on how to execute the test.")
+    expected_result: str = Field(..., description="The anticipated outcome if the application works correctly.")
+    comments: str = Field(..., description="Additional notes or observations.")
+    severity: int = Field(..., description="Severity level of the test case")
+    priority: int = Field(..., description="Priority level of the test case")
 
 
 
@@ -35,7 +37,7 @@ class State(TypedDict):
 graph_builder = StateGraph(State)
 
 llm = ChatGroq(
-    model="llama-3.1-8b-instant",
+    model="deepseek-r1-distill-llama-70b",
     temperature=0,
     max_tokens=None,
     timeout=None,
